@@ -29,7 +29,7 @@ export default class App extends React.Component {
     //
     this.setState({
         sunrise: new Date(`${results["sunrise"]}`.replace(/\+00\:00/)).toLocaleTimeString(),
-        sunset: new Date(`${results["sunsey"]}`.replace(/\+00\:00/)).toLocaleTimeString()
+        sunset: new Date(`${results["sunset"]}`.replace(/\+00\:00/)).toLocaleTimeString()
     })
 }
 
@@ -57,3 +57,19 @@ export default class App extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+
+  container: {
+
+    flex: 1,
+
+    backgroundColor: '#fff',
+
+    alignItems: 'center',
+
+    justifyContent: 'center',
+
+  },
+
+})
