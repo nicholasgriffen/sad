@@ -1,4 +1,5 @@
 import React from 'react'
+import { View, Text } from 'react-native'
 
 export default class Clock extends React.Component {
     constructor(props) {
