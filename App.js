@@ -28,8 +28,8 @@ export default class App extends React.Component {
     const results = JSON.parse(match[1])["results"]
     //
     this.setState({
-        sunrise: new Date(`${results["sunrise"]}`.replace(/\+00\:00/)).toLocaleTimeString(),
-        sunset: new Date(`${results["sunset"]}`.replace(/\+00\:00/)).toLocaleTimeString()
+        sunrise: new Date(`${results["sunrise"]}`.replace(/\+00\:00/, '')).toLocaleTimeString(),
+        sunset: new Date(`${results["sunset"]}`.replace(/\+00\:00/, '')).toLocaleTimeString()
     })
 }
 
