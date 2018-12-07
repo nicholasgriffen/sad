@@ -1,5 +1,6 @@
 import React from 'react'
-import { Alert, Text } from 'react-native'
+import { Text } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 
 
@@ -31,10 +32,8 @@ export default class Joke extends React.Component {
             let resJSON = await response.json()
             console.log('resJSON', resJSON.joke)
             this.setState({
-                // ...this.state,
                 joke: resJSON.joke
             })
-            Alert.alert(resJSON.joke)
         } else {
             console.log('Error:', response)
             throw new Error('GET request failed')
@@ -43,7 +42,25 @@ export default class Joke extends React.Component {
 
     render() {
         return (
-            <Text>{this.state.joke}</Text>
+            <View>
+                <Text style={styles.joke}>{this.state.joke}</Text>
+            </View>
+
         )
     }
 }
+
+
+const styles = StyleSheet.create({
+
+    joke: {
+
+        alignItems: 'center',
+
+        justifyContent: 'center',
+
+        backgroundColor: '#93f6f9',
+
+    },
+
+})
