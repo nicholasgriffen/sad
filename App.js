@@ -54,6 +54,7 @@ export default class App extends React.Component {
       <BackgroundImage>
         <View style={styles.container}>
           <Sun sunset={this.state.sunset}/>
+          <Joke style={styles.joke}/>
         </View>
       </BackgroundImage>
     )
