@@ -1,13 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import BackgroundImage from './components/background'
+
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+      <BackgroundImage>
+        <View style={styles.container}>
+          <Text>Open up App.js to start working on your app!</Text>
+        </View>
+      </BackgroundImage>
+    )
   }
 }
 
