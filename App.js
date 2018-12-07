@@ -4,6 +4,8 @@ import Joke from './components/Joke'
 
 import BackgroundImage from './components/background'
 
+import Sun from './components/sun'
+
 export default class App extends React.Component {
   constructor() {
     super()
@@ -28,8 +30,8 @@ export default class App extends React.Component {
     const results = JSON.parse(match[1])["results"]
     //
     this.setState({
-        sunrise: new Date(`${results["sunrise"]}`.replace(/\+00\:00/)).toLocaleTimeString(),
-        sunset: new Date(`${results["sunset"]}`.replace(/\+00\:00/)).toLocaleTimeString()
+        sunrise: new Date(`${results["sunrise"]}`.replace(/\+00\:00/, '')).toLocaleTimeString(),
+        sunset: new Date(`${results["sunset"]}`.replace(/\+00\:00/, '')).toLocaleTimeString()
     })
 }
 
@@ -51,7 +53,7 @@ export default class App extends React.Component {
     return (
       <BackgroundImage>
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <Sun sunset={this.state.sunset}/>
         </View>
       </BackgroundImage>
     )
@@ -61,15 +63,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
 
   container: {
-
     flex: 1,
-
-    backgroundColor: '#fff',
-
     alignItems: 'center',
-
     justifyContent: 'center',
-
   },
 
 })
