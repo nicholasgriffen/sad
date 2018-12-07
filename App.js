@@ -4,6 +4,8 @@ import Joke from './components/Joke'
 
 import BackgroundImage from './components/background'
 
+import Sun from './components/sun'
+
 export default class App extends React.Component {
   constructor() {
     super()
@@ -51,6 +53,7 @@ export default class App extends React.Component {
     return (
       <BackgroundImage>
         <View style={styles.container}>
+          <Sun sunset={this.state.sunset}/>
           <Joke style={styles.joke}/>
         </View>
       </BackgroundImage>
@@ -61,13 +64,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
 
   container: {
-
     flex: 1,
-
     alignItems: 'center',
-
     justifyContent: 'center',
-
   },
 
 })
