@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import Joke from './components/Joke'
+import { Alert, StyleSheet, Text, View } from 'react-native'
 
-import BackgroundImage from './components/background'
+import  SunriseSunset from './components/SunriseSunset'
 
 export default class App extends React.Component {
   constructor() {
@@ -28,7 +27,7 @@ export default class App extends React.Component {
     const results = JSON.parse(match[1])["results"]
     //
     this.setState({
-        sunrise: new Date(`${results["sunrise"]} UTC`),
+        sunrise: new Date(`${results["sunrise"]} UTC`).getHours(),
         sunset: results["sunset"]
     })
 }
@@ -47,13 +46,22 @@ export default class App extends React.Component {
       errors: e
     })})
   }
+
   render() {
     return (
-      <BackgroundImage>
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-        </View>
-      </BackgroundImage>
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+        <SunriseSunset sunrise={this.state.sunrise} sunset={this.state.sunset}/>
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
